@@ -1,0 +1,11 @@
+services:
+  backend:
+    image: ghcr.io/christoph-sens/cv-enhancer-be/cv-enhancer-be:1.0
+    ports:
+      - "8080:8080"
+    environment:
+      OPEN_AI_API_KEY: $OPEN_AI_API_KEY
+  frontend:
+    image: ghcr.io/christoph-sens/cv-enhancer-fe/cv-enhancer-fe:1.0
+    ports:
+      - "80:80"

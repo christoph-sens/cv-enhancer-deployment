@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+        tier: backend
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: backend
+          image: ghcr.io/christoph-sens/cv-enhancer-be/cv-enhancer-be:1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: OPEN_AI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: open-ai-api-key-secret
+                  key: OPEN_AI_API_KEY
