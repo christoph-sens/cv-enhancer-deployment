@@ -20,7 +20,7 @@ spec:
         - name: ghcr-secret
       containers:
         - name: backend
-          image: ghcr.io/christoph-sens/cv-enhancer-be/cv-enhancer-be:1.0
+          image: ghcr.io/christoph-sens/cv-enhancer-be:1.1.1@sha256:4b64efffea6d5f8e272256fafa382066594e2c1104bf9b87ab9430b3b84169a3
           ports:
             - containerPort: 8080
           env:
